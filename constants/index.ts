@@ -1,0 +1,16 @@
+export const amenities = [
+  "Wifi",
+  "Full kitchen",
+  "Washer & Dryer",
+  "Free Parking",
+  "Hot Tub",
+  "24/7 Security",
+  "Wheelchair Accessible",
+  "Elevator Access",
+  "Dishwasher",
+  "Gym/Fitness Center",
+  "Air Conditioning",
+  "Balcony/Patio",
+  "Smart TV",
+  "Coffee Maker",
+];
