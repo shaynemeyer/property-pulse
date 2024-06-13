@@ -11,15 +11,11 @@ export const metadata = {
 };
 
 const MainLayout = async ({ children }: { children: ReactNode }) => {
-  const session = await auth();
-  const userId = session?.user?.id || null;
-  console.log({ session });
-
   return (
     <AuthProvider>
       <html>
         <body>
-          <Navbar userId={userId} />
+          <Navbar />
           <main>{children}</main>
           <Footer />
         </body>

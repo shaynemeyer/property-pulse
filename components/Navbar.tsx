@@ -6,15 +6,16 @@ import Link from "next/link";
 import logo from "@/assets/images/logo-white.png";
 import profileDefault from "@/assets/images/profile.png";
 import { FaGoogle } from "react-icons/fa";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { signIn, signOut } from "@/auth";
 
-const Navbar = ({ userId }: { userId: string | null }) => {
+const Navbar = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(!!userId);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!session);
 
   const pathname = usePathname();
 
@@ -248,7 +249,9 @@ const Navbar = ({ userId }: { userId: string | null }) => {
 
             {!isLoggedIn && (
               <button
-                onClick={() => signIn("google")}
+                onClick={() => {
+                  signIn("google");
+                }}
                 className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4"
               >
                 <span>Login or Register</span>
